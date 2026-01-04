@@ -2,13 +2,17 @@ package Character;
 
 import Enums.ClassType;
 import Enums.ItemType;
-
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import Item.Item;
 
-
+/**
+ * Represents a player-controlled hero.
+ * <p>
+ * Extends {@link Entity} and adds class type, abilities,
+ * inventory management, leveling system and combat actions.
+ * </p>
+ */
 public abstract class Hero extends Entity {
     public ClassType player;
     public String specialAbility;
@@ -60,6 +64,11 @@ public abstract class Hero extends Entity {
         this.level = level;
     }
 
+    /**
+     * Displays weapon and class information for a given hero class.
+     *
+     * @param classType the selected hero class
+     */
     public static void showClassWeaponDetails(ClassType classType) {
 
         System.out.println("\n=== SELECTED CLASS ===");
@@ -112,6 +121,12 @@ public abstract class Hero extends Entity {
         System.out.println("==============================");
     }
 
+    /**
+     * Prompts the player to select a hero class
+     * and returns the corresponding hero instance.
+     *
+     * @return a newly created hero based on player choice
+     */
     public static Hero chooseCharacter() {
         Scanner input = new Scanner(System.in);
 
@@ -142,6 +157,9 @@ public abstract class Hero extends Entity {
         }
     }
 
+    /**
+     * Prompts the player to choose and set the hero name.
+     */
     public void chooseYourName() {
         Scanner input = new Scanner(System.in);
         System.out.println("\nNow brave hero, tell us the name that shall echo through legends:");
@@ -195,6 +213,10 @@ public abstract class Hero extends Entity {
         System.out.println("You received " + damage + " damage!");
     }
 
+    /**
+     * Allows the hero to select and use a consumable item
+     * from the inventory.
+     */
     public void useConsumable() {
         Scanner input = new Scanner(System.in);
 
@@ -262,6 +284,12 @@ public abstract class Hero extends Entity {
         System.out.println("You dealt " + this.abilityDamage + " damage with your special ability");
     }
 
+    /**
+     * Increases the hero level and allows the player
+     * to choose an attribute to upgrade.
+     *
+     * @param hero the hero being leveled up
+     */
     public static void levelUp(Hero hero) {
 
         Scanner input = new Scanner(System.in);

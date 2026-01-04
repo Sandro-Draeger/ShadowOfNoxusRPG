@@ -2,6 +2,10 @@ package Item;
 
 import Enums.ItemType;
 
+/**
+ * Represents a generic item that can be used or purchased
+ * in the game, such as consumables or weapons.
+ */
 public abstract class Item {
     protected String name;
     protected ItemType type;

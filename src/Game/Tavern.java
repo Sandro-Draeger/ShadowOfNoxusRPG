@@ -3,8 +3,17 @@ import java.util.Random;
 import java.util.Scanner;
 import Character.Hero;
 
+/**
+ * Represents the tavern hub where the hero can interact
+ * with multiple game systems such as shop, gambling and quests.
+ */
 public abstract class Tavern {
 
+    /**
+     * Displays the main tavern menu to the player.
+     *
+     * @param hero the current hero
+     */
     public static void showTavernMenu(Hero hero) {
         final String RESET = "\u001B[0m";
         final String RED = "\u001B[31m";
@@ -32,6 +41,52 @@ public abstract class Tavern {
 
     }
 
+    /**
+     * Controls the tavern interaction loop and routes
+     * the hero to different tavern activities.
+     *
+     * @param shop the current shop instance
+     * @param hero the current hero
+     * @throws InterruptedException if the thread sleep is interrupted
+     */
+    public static void tavernMenu(Shop shop, Hero hero) throws InterruptedException {
+        Scanner input = new Scanner(System.in);
+        int option = -1;
+
+        while (option != 3) {
+            showTavernMenu(hero);
+            option = input.nextInt();
+
+            switch (option) {
+                case 1:
+                    Shop.showShop(shop, hero);
+                    break;
+                case 2:
+                    gamblingGames(shop, hero);
+                    break;
+                case 3:
+                    Quest.questMenu(hero, shop);
+                    break;
+                case 4:
+                    hero.heroInventory();
+                    break;
+                case 5:
+                    hero.heroDetails();
+                    break;
+                default:
+                    System.out.println("Inlavid option, choose again.\n");
+            }
+        }
+    }
+
+    /**
+     * Handles the tavern gambling game where the hero
+     * can bet gold for a chance to earn a reward.
+     *
+     * @param shop the current shop instance
+     * @param hero the hero participating in the gamble
+     * @throws InterruptedException if the thread sleep is interrupted
+     */
     public static void gamblingGames(Shop shop, Hero hero) throws InterruptedException {
         Scanner input = new Scanner(System.in);
 
@@ -67,6 +122,12 @@ public abstract class Tavern {
         }
     }
 
+    /**
+     * Executes the dice roll and evaluates the gambling result.
+     *
+     * @return true if the hero wins the bet, false otherwise
+     * @throws InterruptedException if the thread sleep is interrupted
+     */
     public static boolean gamblingResult() throws InterruptedException {
         Scanner input = new Scanner(System.in);
         boolean result = false;
@@ -86,33 +147,4 @@ public abstract class Tavern {
         return result;
     }
 
-    public static void tavernMenu(Shop shop, Hero hero) throws InterruptedException {
-        Scanner input = new Scanner(System.in);
-        int option = -1;
-
-        while (option != 3) {
-            showTavernMenu(hero);
-            option = input.nextInt();
-
-            switch (option) {
-                case 1:
-                    Shop.showShop(shop, hero);
-                    break;
-                case 2:
-                    gamblingGames(shop, hero);
-                    break;
-                case 3:
-                    Quest.questMenu(hero, shop);
-                    break;
-                case 4:
-                    hero.heroInventory();
-                    break;
-                case 5:
-                    hero.heroDetails();
-                    break;
-                default:
-                    System.out.println("Inlavid option, choose again.\n");
-            }
-        }
-    }
 }

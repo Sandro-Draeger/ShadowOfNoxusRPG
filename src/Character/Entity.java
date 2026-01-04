@@ -1,5 +1,12 @@
 package Character;
 
+/**
+ * Represents a base game entity.
+ * <p>
+ * Provides common attributes such as name, health points
+ * and attack power for all characters.
+ * </p>
+ */
 public abstract class Entity {
    protected String name;
    protected int hp;

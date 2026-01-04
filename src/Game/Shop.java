@@ -2,23 +2,34 @@ package Game;
 
 import Item.Item;
 import Character.Hero;
-
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
 import Item.Consumable;
 import Item.Weapons;
 
+/**
+ * Represents an in-game shop where heroes can buy items
+ * such as consumables and weapon upgrades.
+ */
 public class Shop {
     private ArrayList<Item> allItems;
 
+    /**
+     * Creates a shop with a predefined list of items.
+     *
+     * @param allItems the complete list of items available in the game
+     */
     public Shop(ArrayList<Item> allItems) {
         this.allItems = allItems;
     }
 
 
-    //função de itens Random
+    /**
+     * Generates a random selection of items for the shop stock.
+     *
+     * @return a list containing randomly selected items
+     */
     public ArrayList<Item> randomItems() {
         ArrayList<Item> result = new ArrayList<>();
         Random r = new Random();
@@ -31,7 +42,11 @@ public class Shop {
         return result;
     }
 
-    //exibir loja
+    /**
+     * Generates a random selection of items for the shop stock.
+     *
+     * @return a list containing randomly selected items
+     */
     public static void showShop(Shop shop, Hero hero) {
         Scanner input = new Scanner(System.in);
         int choice = -1;
@@ -62,7 +77,6 @@ public class Shop {
 
             System.out.println("\nYou have: " + hero.getGold() + "nc");
 
-            //compra do player
             System.out.print("\nChoose an item (1-" + todayStock.size() + "), or 0 to exit: ");
 
             choice = input.nextInt();

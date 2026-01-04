@@ -3,6 +3,10 @@ package Game;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Represents a riddle containing a question,
+ * multiple answer options and the correct answer.
+ */
 public class Riddle {
 
     private String question;
@@ -29,6 +33,11 @@ public class Riddle {
         return options;
     }
 
+    /**
+     * Initializes and returns the full list of available riddles.
+     *
+     * @return a list containing all predefined riddles
+     */
     public static ArrayList<Riddle> initRiddles() {
 
         ArrayList<Riddle> riddles = new ArrayList<>();
@@ -116,6 +125,12 @@ public class Riddle {
         return riddles;
     }
 
+    /**
+     * Returns a random riddle that has not been used yet.
+     *
+     * @param riddles the list of available riddles
+     * @return a random unused riddle
+     */
     public static Riddle getRandomRiddle(ArrayList<Riddle> riddles) {
         Riddle randomRiddle = pickRandomRiddle(riddles);
         while (randomRiddle.alreadyUsed) {

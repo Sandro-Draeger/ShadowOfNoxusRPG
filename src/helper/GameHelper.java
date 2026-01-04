@@ -1,15 +1,14 @@
 package helper;
 
 
-
+/**
+ * Utility class containing helper methods for displaying
+ * game-related messages, dividers and maps.
+ */
 public class GameHelper {
 
-    public static final String SCENE_DIVIDER =
-            "\n------------------------------------------------------------\n";
-
-
     public static void printDivider() {
-        System.out.println(SCENE_DIVIDER);
+        System.out.println("\n------------------------------------------------------------\n");
     }
 
     public static void healMessage() {
