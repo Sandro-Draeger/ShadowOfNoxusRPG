@@ -104,5 +104,5 @@ The project is organized into clear packages:
 
 ## 👤 Author
 
-Developed by **[Your Name]**
+Developed by **Sandro Draeger**
 Academic Java Project
