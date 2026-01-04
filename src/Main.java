@@ -4,7 +4,6 @@ import Enums.ItemType;
 import Item.Consumable;
 import Item.Weapons;
 import Game.Shop;
-
 import java.util.ArrayList;
 
 public class Main {

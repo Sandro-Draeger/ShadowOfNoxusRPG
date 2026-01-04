@@ -165,7 +165,7 @@ public abstract class Hero extends Entity {
         System.out.println("\nNow brave hero, tell us the name that shall echo through legends:");
         String newName = input.next();
         setName(newName);
-        System.out.println("Welcome! " + this.name + "! Your journey begins now.\n");
+        System.out.println("\nWelcome! " + this.name + "! Your journey begins now.\n");
     }
 
     public void addGold(int gold) {
